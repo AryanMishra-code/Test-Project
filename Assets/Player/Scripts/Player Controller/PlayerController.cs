@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                _animator.SetTrigger("Punch");
+                _animator.SetTrigger("Use Item");
                 nextAttackTime = Time.time + 1f / punchRate;
             }
         }
