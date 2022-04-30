@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
-  inventorySize: 5
+  inventorySize: 9
 --- !u!114 &687863650163494523
 MonoBehaviour:
   m_ObjectHideFlags: 0
