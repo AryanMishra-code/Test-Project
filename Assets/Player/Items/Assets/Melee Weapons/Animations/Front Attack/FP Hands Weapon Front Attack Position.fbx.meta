@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 17e89609f2009c84cbd5db0b5ae83885
+guid: 14ce731c8abf0dd4b924c79a202ef8f9
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 1039712873105329943
-    second: Human FP Arms|Weapon Equipped
+      74: -6618919945616518274
+    second: Human FP Arms|Weapon Attack Position
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Human FP Arms|Weapon Equipped
-      takeName: Human FP Arms|Weapon Equipped
+      name: Human FP Arms|Weapon Attack Position
+      takeName: Human FP Arms|Weapon Attack
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 23
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
