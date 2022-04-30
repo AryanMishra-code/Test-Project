@@ -13,11 +13,14 @@ public class Item : ScriptableObject
     public GameObject prefab;
     public ItemLevel itemLevel;
 
-
+    [Header("Type")]
+    public ItemType itemType;
+    
     public virtual void Use()
     {
         Debug.Log(Name + " was used.");
     }
 }
 
+public enum ItemType { Melee, HarvestTool, Consumable}
 public enum ItemLevel { Level1, Level2, Level3}

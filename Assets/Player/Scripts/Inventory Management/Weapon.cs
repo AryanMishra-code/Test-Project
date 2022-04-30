@@ -9,9 +9,4 @@ public class Weapon : Item
     public float damage;
     public float durability;
     public float attackSpeed;
-    
-    [Header("Type")]
-    public WeaponType weaponType;
 }
-
-public enum WeaponType { Melee, HarvestTool}
