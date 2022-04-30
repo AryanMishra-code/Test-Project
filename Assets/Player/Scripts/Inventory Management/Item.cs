@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : ScriptableObject
@@ -11,9 +9,6 @@ public class Item : ScriptableObject
     
     [Header("Item Properties")]
     public GameObject prefab;
-    public ItemLevel itemLevel;
-
-    [Header("Type")]
     public ItemType itemType;
     
     public virtual void Use()
@@ -23,4 +18,3 @@ public class Item : ScriptableObject
 }
 
 public enum ItemType { Melee, HarvestTool, Consumable}
-public enum ItemLevel { Level1, Level2, Level3}

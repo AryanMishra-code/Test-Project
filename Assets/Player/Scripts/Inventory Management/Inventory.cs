@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Item[] items;
+    [SerializeField] public Item[] items;
     public int inventorySize;
     
     private void Start()

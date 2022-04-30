@@ -19,10 +19,7 @@ public class PlayerController : MonoBehaviour
     public float crouchSpeed = 2f;
     public float crouchingHeight = .85f;
     public float standingHeight = 1.65f;
-    
-    private float punchRate = 1f;
-    private float nextAttackTime = 0f;
-    
+
     Vector3 _velocity;
     bool _isGrounded;
     bool _canCrouch = false;
@@ -32,27 +29,14 @@ public class PlayerController : MonoBehaviour
     private float timer = 0f;
     private Vector2 input;
 
-    private Animator _animator;
-
-    private void Start()
-    {
-        GetReferences();
-    }
-    
     void Update()
     {
         CheckIfIsCrouching();
         SettingSpeedValues();
         CheckIfPlayerIsGrounded();
         PlayerControls();
-        BasicPunchAttack();
     }
 
-    private void GetReferences()
-    {
-        _animator = GetComponentInChildren<Animator>();
-    }
-    
     private void CheckIfIsCrouching()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -119,17 +103,5 @@ public class PlayerController : MonoBehaviour
 
         _velocity.y += gravity * Time.deltaTime;
         playerController.Move(_velocity * Time.deltaTime);
-    }
-
-    private void BasicPunchAttack()
-    {
-        if (Time.time > nextAttackTime)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                _animator.SetTrigger("Use Item");
-                nextAttackTime = Time.time + 1f / punchRate;
-            }
-        }
     }
 }
