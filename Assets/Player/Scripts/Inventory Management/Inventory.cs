@@ -12,11 +12,11 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item newItem)
     {
-        int newItemIndex = (int) newItem.itemLevel;
+        int newItemIndex = 0;
         
         if (items[newItemIndex] != null)
         {
-            RemoveItem(newItemIndex);
+            newItemIndex += 1;
         }
         items[newItemIndex] = newItem;
     }
