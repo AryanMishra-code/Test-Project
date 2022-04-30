@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Items/Weapon")]
 public class Weapon : Item
 {
-    public GameObject prefab;
+    [Header("Weapon Properties")]
     public float damage;
     public float durability;
     public float attackSpeed;
+    
+    [Header("Type")]
     public WeaponType weaponType;
-    public WeaponLevel weaponLevel;
 }
 
 public enum WeaponType { Melee, HarvestTool}
-public enum WeaponLevel { Level1, Level2, Level3}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Weapon[] weapons;
+    [SerializeField] private Item[] items;
     public int inventorySize;
     
     private void Start()
@@ -10,29 +10,29 @@ public class Inventory : MonoBehaviour
         InitVariables();
     }
 
-    public void AddItem(Weapon newItem)
+    public void AddItem(Item newItem)
     {
-        int newItemIndex = (int) newItem.weaponLevel;
+        int newItemIndex = (int) newItem.itemLevel;
         
-        if (weapons[newItemIndex] != null)
+        if (items[newItemIndex] != null)
         {
             RemoveItem(newItemIndex);
         }
-        weapons[newItemIndex] = newItem;
+        items[newItemIndex] = newItem;
     }
 
     public void RemoveItem(int index)
     {
-        weapons[index] = null;
+        items[index] = null;
     }
 
-    public Weapon GetItem(int index)
+    public Item GetItem(int index)
     {
-        return weapons[index];
+        return items[index];
     }
 
     private void InitVariables()
     {
-        weapons = new Weapon[inventorySize];
+        items = new Item[inventorySize];
     }
 }

@@ -19,5 +19,5 @@ MonoBehaviour:
   damage: 0
   durability: 0
   attackSpeed: 0
+  itemLevel: 1
   weaponType: 0
-  weaponLevel: 1
