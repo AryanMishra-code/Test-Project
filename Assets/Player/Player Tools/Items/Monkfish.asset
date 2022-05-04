@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d98c23a155b504ebf9b5bb89a72dc9, type: 3}
   m_Name: Monkfish
   m_EditorClassIdentifier: 
-  Id: 3
-  uiDisplay: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 4559765882625988083, guid: 074afd255e33083458fdc10e005daa1b, type: 3}
   type: 0
   description: Can be fished in Piscatoris by plrs who have a fishing level of 62
     or higher, and have copleted the Swan Song Fest.

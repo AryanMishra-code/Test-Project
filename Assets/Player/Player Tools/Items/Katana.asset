@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1ebb535ad4b624babd2401ab32a788, type: 3}
   m_Name: Katana
   m_EditorClassIdentifier: 
-  Id: 1
-  uiDisplay: {fileID: 21300000, guid: 0684445c50c1b7d4eba677185647bc6c, type: 3}
+  prefab: {fileID: 8991858339781750255, guid: 106b50b4acbd9e7429fdd0a57faa4dfd, type: 3}
   type: 1
   description: A katana for slashing and stabbing!
-  buffs:
-  - attribute: 3
-    value: 0
-    min: 5
-    max: 50
+  attackBonus: 10
+  defenceBonus: 0
