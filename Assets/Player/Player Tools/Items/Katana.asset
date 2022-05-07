@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2
   uiDisplay: {fileID: 21300000, guid: 0684445c50c1b7d4eba677185647bc6c, type: 3}
+  _object: {fileID: 5536009821540715295, guid: 8f4310963ae218a4a84fa85e3ee05599, type: 3}
   type: 1
   description: Ninja!
   buffs:
