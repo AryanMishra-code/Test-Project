@@ -1635,7 +1635,6 @@ RectTransform:
   - {fileID: 638813034}
   - {fileID: 1416574532}
   - {fileID: 38785097}
-  - {fileID: 1694726213}
   - {fileID: 2007214219}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1811,7 +1810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5690f1a56a7d44685caa3d5525dc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 72340ac224d1b4940b4e8a8794b32a0f, type: 2}
+  item: {fileID: 11400000, guid: 1ccff1898ce2119428538446743747e7, type: 2}
 --- !u!135 &1195614427
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2701,42 +2700,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682569795}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1694726212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1694726213}
-  m_Layer: 5
-  m_Name: Inventory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1694726213
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694726212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1022418537}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1769706129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,7 +3000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5690f1a56a7d44685caa3d5525dc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 72340ac224d1b4940b4e8a8794b32a0f, type: 2}
+  item: {fileID: 11400000, guid: 4bf10db75d1601b45ba839dff966e782, type: 2}
 --- !u!135 &1956027392
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3323,7 +3286,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1022418537}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3343,7 +3306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3380,9 +3343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4b5ad31669fa445a09dd59fe0c355c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryPrefab: {fileID: 5985892912686699175, guid: 1bca2c7286b90a74497c5e53e769245e, type: 3}
   inventory: {fileID: 11400000, guid: 8ba63bf8695a4a6418b4e7c0e82f9e58, type: 2}
   X_START: -215
-  Y_START: 300
+  Y_START: 315
   X_SPACE_BETWEEN_ITEMS: 110
   NUMBER_OF_COLUMNS: 5
   Y_SPACE_BETWEEN_ITEMS: 110

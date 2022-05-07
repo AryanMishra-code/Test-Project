@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465f691135b261142bd11a6664c10477, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6551978402568577321, guid: 59d528a29eae94e46b99b28553c0d820, type: 3}
+  Id: 3
+  uiDisplay: {fileID: 21300000, guid: 78b0d3a14b17c5a43ab24fdc60756a1b, type: 3}
   type: 1
   description: A knife for slashing and stabbing!
-  attackBonus: 5
-  defenseBonus: 0
+  buffs:
+  - attribute: 0
+    value: 0
+    min: 10
+    max: 20
