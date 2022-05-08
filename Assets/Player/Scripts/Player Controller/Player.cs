@@ -6,6 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
+    [SerializeField] GameObject inventoryPanel;
+
+    bool inventoryPanelIsVisible = false;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -24,15 +27,46 @@ public class Player : MonoBehaviour
         {
             inventory.Save();
         }
-        
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             inventory.Load();
+        }
+        
+        InventoryPanelCheck();
+    }
+
+    private void InventoryPanelCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!inventoryPanelIsVisible)
+            {
+                inventoryPanelIsVisible = true;
+            }
+            else
+            {
+                inventoryPanelIsVisible = false;
+            }
+        }
+
+        if (inventoryPanelIsVisible)
+        {
+            inventoryPanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            GetComponent<PlayerController>().enabled = false;
+            GetComponentInChildren<CameraMouseLook>().enabled = false;
+        }
+        else
+        {
+            inventoryPanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            GetComponent<PlayerController>().enabled = true;
+            GetComponentInChildren<CameraMouseLook>().enabled = true;
         }
     }
 
     private void OnApplicationQuit()
     {
-        inventory.Container.Items.Clear();
+        inventory.Container.Items = new InventorySlot[30];
     }
 }
