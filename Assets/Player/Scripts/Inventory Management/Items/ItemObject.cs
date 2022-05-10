@@ -21,6 +21,7 @@ public abstract class ItemObject : ScriptableObject
 {
     public int Id;
     public Sprite uiDisplay;
+    public GameObject objectPrefab;
     public ItemType type;
     
     [TextArea(15, 20)]

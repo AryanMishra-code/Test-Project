@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   uiDisplay: {fileID: 21300000, guid: c1dc53114b6da12469d19c14d364af23, type: 3}
+  objectPrefab: {fileID: 9192615095663149088, guid: 76d038102e711cb46bcbf9f4aeacf1a9, type: 3}
   type: 2
   description: The left overs of those you've slain!
+  buffs: []

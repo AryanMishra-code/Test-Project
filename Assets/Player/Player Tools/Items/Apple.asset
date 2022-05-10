@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   uiDisplay: {fileID: 21300000, guid: 151f0edcce35b094aaa57f9ce998b36f, type: 3}
+  objectPrefab: {fileID: 2535619313020983049, guid: cd90604c782523c49985448781cb6604, type: 3}
   type: 0
   description: An apple a day keeps a doctor away!
-  restoreHealthValue: 10
+  buffs: []
