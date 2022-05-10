@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
     public float crouchingHeight = .85f;
     public float standingHeight = 1.65f;
 
+    [Header("Camera FOV")]
+    [SerializeField] private float CameraFOVSprint;
+    [SerializeField] private float CameraFOVWalk;
+    [SerializeField] private Camera camera;
+
     Vector3 _velocity;
     bool _isGrounded;
     bool _canCrouch = false;
@@ -35,6 +40,7 @@ public class PlayerController : MonoBehaviour
         SettingSpeedValues();
         CheckIfPlayerIsGrounded();
         PlayerControls();
+        ControlCamFOV();
     }
 
     private void CheckIfIsCrouching()
@@ -103,5 +109,17 @@ public class PlayerController : MonoBehaviour
 
         _velocity.y += gravity * Time.deltaTime;
         playerController.Move(_velocity * Time.deltaTime);
+    }
+
+    private void ControlCamFOV()
+    {
+        if (currentSpeed == runSpeed)
+        {
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, CameraFOVSprint, 0.05f);
+        }
+        else
+        {
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, CameraFOVWalk, 0.05f);
+        }
     }
 }
