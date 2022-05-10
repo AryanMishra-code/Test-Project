@@ -190,7 +190,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6053386686963001570}
-  - component: {fileID: 207693116948345496}
   m_Layer: 0
   m_Name: Futuristic Knife
   m_TagString: Untagged
@@ -205,8 +204,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866339829394862680}
-  m_LocalRotation: {x: -0.006968407, y: 0.1222631, z: 0.5060431, w: 0.85377026}
-  m_LocalPosition: {x: 0.0182, y: 0.1026, z: -0.0227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -214,27 +213,7 @@ Transform:
   - {fileID: 6921987052848997745}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -7.796, y: 11.747, z: 60.509}
---- !u!95 &207693116948345496
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6866339829394862680}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e14e5f97121d365448dfe69db465b4db, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7425647674746885129
 GameObject:
   m_ObjectHideFlags: 0
