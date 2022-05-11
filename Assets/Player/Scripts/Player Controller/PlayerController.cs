@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, CameraFOVWalk, 0.05f);
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, CameraFOVWalk, 0.1f);
         }
     }
 }
