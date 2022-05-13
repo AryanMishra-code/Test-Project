@@ -21,25 +21,31 @@ public class PlayerController : MonoBehaviour
     public float standingHeight = 1.65f;
 
     [Header("Camera FOV")]
-    [SerializeField] private float CameraFOVSprint;
-    [SerializeField] private float CameraFOVWalk;
+    [SerializeField] private float cameraFOVSprint;
+    [SerializeField] private float cameraFOVWalk;
     [SerializeField] private Camera camera;
 
-    Vector3 _velocity;
-    bool _isGrounded;
-    bool _canCrouch = false;
+    bool isGrounded;
+    bool canCrouch = false;
 
     private float currentSpeed = 0f;
     private float currentInterval;
     private float timer = 0f;
+
+    private float horizontal;
+    private float vertical;
+    
     private Vector2 input;
+    private Vector3 velocity;
 
     void Update()
     {
         CheckIfIsCrouching();
         SettingSpeedValues();
         CheckIfPlayerIsGrounded();
-        PlayerControls();
+        SetupPlayerInput();
+        PlayerMovement();
+        ControlJump();
         ControlCamFOV();
     }
 
@@ -47,14 +53,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            if (!_canCrouch)
+            if (!canCrouch)
             {
-                _canCrouch = true;
+                canCrouch = true;
                 playerController.height = crouchingHeight;
             }
             else
             {
-                _canCrouch = false;
+                canCrouch = false;
                 playerController.height = standingHeight;
             }
         }
@@ -62,7 +68,7 @@ public class PlayerController : MonoBehaviour
     
     private void SettingSpeedValues()
     {
-        if (!_canCrouch)
+        if (!canCrouch)
         {
             currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
         }
@@ -74,26 +80,30 @@ public class PlayerController : MonoBehaviour
     
     private void CheckIfPlayerIsGrounded()
     {
-        _isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (_isGrounded && _velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
-            _velocity.y = -2f;
+            velocity.y = -2f;
         }
     }
 
-    private void PlayerControls()
+    private void SetupPlayerInput()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
 
         input = new Vector2(horizontal, vertical);
+    }
 
+    private void PlayerMovement()
+    {
         if (input.sqrMagnitude > 0)
         {
             timer += Time.deltaTime;
             currentInterval = currentSpeed == runSpeed ? footstepInterval / 2 : footstepInterval;
-            if (timer >= currentInterval && _isGrounded)
+            
+            if (timer >= currentInterval && isGrounded)
             {
                 timer = 0f;
             }
@@ -101,25 +111,28 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = transform.right * horizontal + transform.forward * vertical;
         playerController.Move(direction * currentSpeed * Time.deltaTime);
-        
-        if (Input.GetButtonDown("Jump") && _isGrounded && !_canCrouch)
+    }
+
+    private void ControlJump()
+    {
+        if (Input.GetButtonDown("Jump") && isGrounded && !canCrouch)
         {
-            _velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
+            velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
         }
 
-        _velocity.y += gravity * Time.deltaTime;
-        playerController.Move(_velocity * Time.deltaTime);
+        velocity.y += gravity * Time.deltaTime;
+        playerController.Move(velocity * Time.deltaTime);
     }
 
     private void ControlCamFOV()
     {
-        if (currentSpeed == runSpeed)
+        if ((currentSpeed == runSpeed) && (horizontal != 0 || vertical != 0))
         {
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, CameraFOVSprint, 0.05f);
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, cameraFOVSprint, 0.05f);
         }
         else
         {
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, CameraFOVWalk, 0.1f);
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, cameraFOVWalk, 0.1f);
         }
     }
 }
