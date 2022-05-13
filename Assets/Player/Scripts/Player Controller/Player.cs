@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
-    [SerializeField] GameObject inventoryPanel;
+    [SerializeField] GameObject inventoryHUD;
 
     bool inventoryPanelIsVisible = false;
 
@@ -51,14 +51,14 @@ public class Player : MonoBehaviour
 
         if (inventoryPanelIsVisible)
         {
-            inventoryPanel.SetActive(true);
+            inventoryHUD.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             GetComponent<PlayerController>().enabled = false;
             GetComponentInChildren<CameraMouseLook>().enabled = false;
         }
         else
         {
-            inventoryPanel.SetActive(false);
+            inventoryHUD.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             GetComponent<PlayerController>().enabled = true;
             GetComponentInChildren<CameraMouseLook>().enabled = true;
