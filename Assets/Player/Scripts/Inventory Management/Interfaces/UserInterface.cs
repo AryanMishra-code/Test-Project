@@ -102,7 +102,8 @@ public abstract class UserInterface : MonoBehaviour
         }
         else
         {
-            inventory.RemoveItem(itemsDisplayed[obj].item);
+            if (!player.mouseItem.IsOverInterface())
+                inventory.RemoveItem(itemsDisplayed[obj].item);
         }
         Destroy(player.mouseItem.obj);
         player.mouseItem.item = null;
@@ -120,4 +121,9 @@ public class MouseItem
     public InventorySlot item;
     public InventorySlot hoverItem;
     public GameObject hoverObj;
+
+    public bool IsOverInterface()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
 }
