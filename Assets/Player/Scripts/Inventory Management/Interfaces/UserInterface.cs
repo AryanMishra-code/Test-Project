@@ -12,15 +12,15 @@ public abstract class UserInterface : MonoBehaviour
     public Player player;
     
     public InventoryObject inventory;
-    public Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
+    protected Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
 
     void Start()
     {
-        for (int i = 0; i < inventory.Container.Items.Length; i++)
+        foreach (var t in inventory.Container.Items)
         {
-            inventory.Container.Items[i].parent = this;
+            t.parent = this;
         }
-        
+
         CreateSlots();
     }
     
@@ -31,7 +31,7 @@ public abstract class UserInterface : MonoBehaviour
 
     public abstract void CreateSlots();
 
-    public void UpdateSlots()
+    private void UpdateSlots()
     {
         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemsDisplayed)
         {
@@ -65,19 +65,19 @@ public abstract class UserInterface : MonoBehaviour
         trigger.triggers.Add(eventTrigger);
     }
 
-    public void OnEnter(GameObject obj)
+    protected void OnEnter(GameObject obj)
     {
         player.mouseItem.hoverObj = obj;
 
         if (itemsDisplayed.ContainsKey((obj)))
             player.mouseItem.hoverItem = itemsDisplayed[obj];
     }
-    public void OnExit(GameObject obj)
+    protected void OnExit(GameObject obj)
     {
         player.mouseItem.hoverObj = null;
         player.mouseItem.hoverItem = null;
     }
-    public void OnDragStart(GameObject obj)
+    protected void OnDragStart(GameObject obj)
     {
         var mouseObject = new GameObject();
         var rt = mouseObject.AddComponent<RectTransform>();
@@ -94,10 +94,16 @@ public abstract class UserInterface : MonoBehaviour
         player.mouseItem.obj = mouseObject;
         player.mouseItem.item = itemsDisplayed[obj];
     }
-    public void OnDragEnd(GameObject obj)
+    protected void OnDragEnd(GameObject obj)
     {
         if (player.mouseItem.hoverObj)
         {
+            if (player.mouseItem.hoverItem.ID == player.mouseItem.item.ID && player.mouseItem.hoverItem.item.buffs.Length == 0)
+            {
+                player.mouseItem.item.amount += player.mouseItem.hoverItem.amount;
+                player.mouseItem.hoverItem.ID = -1;
+            }
+            
             inventory.MoveItem(itemsDisplayed[obj], player.mouseItem.hoverItem.parent.itemsDisplayed[player.mouseItem.hoverObj]);
         }
         else
@@ -108,7 +114,7 @@ public abstract class UserInterface : MonoBehaviour
         Destroy(player.mouseItem.obj);
         player.mouseItem.item = null;
     }
-    public void OnDrag(GameObject obj)
+    protected void OnDrag(GameObject obj)
     {
         if (player.mouseItem.obj != null)
             player.mouseItem.obj.GetComponent<RectTransform>().position = Input.mousePosition;
