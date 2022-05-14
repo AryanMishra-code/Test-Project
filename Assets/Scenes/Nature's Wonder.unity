@@ -476,10 +476,6 @@ PrefabInstance:
       propertyPath: inventoryHUD
       value: 
       objectReference: {fileID: 2007214218}
-    - target: {fileID: 1552705279, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
-      propertyPath: inventoryPanel
-      value: 
-      objectReference: {fileID: 2007214218}
     - target: {fileID: 131400610755858273, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
       propertyPath: m_RootOrder
       value: 0

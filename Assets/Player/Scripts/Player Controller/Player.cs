@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public MouseItem mouseItem = new MouseItem();
 
     public InventoryObject inventory;
+    public InventoryObject mainHotBarEquipment;
+    public InventoryObject leftHandEquipment;
+    
     [SerializeField] GameObject inventoryHUD;
 
     bool inventoryPanelIsVisible = false;
@@ -70,5 +73,7 @@ public class Player : MonoBehaviour
     private void OnApplicationQuit()
     {
         inventory.Container.Items = new InventorySlot[30];
+        mainHotBarEquipment.Container.Items = new InventorySlot[7];
+        leftHandEquipment.Container.Items = new InventorySlot[1];
     }
 }
