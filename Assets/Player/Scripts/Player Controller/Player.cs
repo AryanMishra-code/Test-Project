@@ -14,14 +14,33 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject inventoryHUD;
 
     bool inventoryPanelIsVisible = false;
+    bool canAddItemToInventory;
 
     public void OnTriggerEnter(Collider other)
+    {
+        EquipItem(other);
+    }
+
+    private void EquipItem(Collider other)
     {
         var item = other.GetComponent<GroundItem>();
 
         if (item)
         {
-            inventory.AddItem(new Item(item.item), 1);
+            for (int i = 0; i < mainHotBarEquipment.Container.Items.Length; i++)
+            {
+                if (mainHotBarEquipment.Container.Items[i].ID <= 1)
+                    canAddItemToInventory = false;
+                
+                else
+                    canAddItemToInventory = true;
+            }
+
+            if (canAddItemToInventory)
+                inventory.AddItem(new Item(item.item), 1);
+            else
+                mainHotBarEquipment.AddItem(new Item(item.item), 1);
+
             Destroy(other.gameObject);
         }
     }
