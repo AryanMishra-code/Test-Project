@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public MouseItem mouseItem = new MouseItem();
+
     public InventoryObject inventory;
     [SerializeField] GameObject inventoryHUD;
 
