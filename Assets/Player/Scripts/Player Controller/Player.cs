@@ -20,31 +20,7 @@ public class Player : MonoBehaviour
     {
         EquipItem(other);
     }
-
-    private void EquipItem(Collider other)
-    {
-        var item = other.GetComponent<GroundItem>();
-
-        if (item)
-        {
-            for (int i = 0; i < mainHotBarEquipment.Container.Items.Length; i++)
-            {
-                if (mainHotBarEquipment.Container.Items[i].ID <= 1)
-                    canAddItemToInventory = false;
-                
-                else
-                    canAddItemToInventory = true;
-            }
-
-            if (canAddItemToInventory)
-                inventory.AddItem(new Item(item.item), 1);
-            else
-                mainHotBarEquipment.AddItem(new Item(item.item), 1);
-
-            Destroy(other.gameObject);
-        }
-    }
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
@@ -55,8 +31,37 @@ public class Player : MonoBehaviour
         {
             inventory.Load();
         }
-        
+
+        CheckIfCanAddItemsToHotBar();
         InventoryPanelCheck();
+    }
+
+    private void CheckIfCanAddItemsToHotBar()
+    {
+        for (int i = 0; i < mainHotBarEquipment.Container.Items.Length; i++)
+        {
+            if (mainHotBarEquipment.Container.Items[i].ID <= -1)
+                canAddItemToInventory = false;
+                
+            else
+                canAddItemToInventory = true;
+        }
+    }
+
+
+    private void EquipItem(Collider other)
+    {
+        var item = other.GetComponent<GroundItem>();
+
+        if (item)
+        {
+            if (canAddItemToInventory)
+                inventory.AddItem(new Item(item.item), 1);
+            else
+                mainHotBarEquipment.AddItem(new Item(item.item), 1);
+
+            Destroy(other.gameObject);
+        }
     }
 
     private void InventoryPanelCheck()
