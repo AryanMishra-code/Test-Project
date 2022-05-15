@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject inventoryHUD;
 
     bool inventoryPanelIsVisible = false;
-    bool canAddItemToInventory;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -32,22 +31,8 @@ public class Player : MonoBehaviour
             inventory.Load();
         }
 
-        CheckIfCanAddItemsToHotBar();
         InventoryPanelCheck();
     }
-
-    private void CheckIfCanAddItemsToHotBar()
-    {
-        for (int i = 0; i < mainHotBarEquipment.Container.Items.Length; i++)
-        {
-            if (mainHotBarEquipment.Container.Items[i].ID <= -1)
-                canAddItemToInventory = false;
-                
-            else
-                canAddItemToInventory = true;
-        }
-    }
-
 
     private void EquipItem(Collider other)
     {
@@ -55,13 +40,23 @@ public class Player : MonoBehaviour
 
         if (item)
         {
-            if (canAddItemToInventory)
-                inventory.AddItem(new Item(item.item), 1);
-            else
+            if (CanAddItemsToHotBar())
                 mainHotBarEquipment.AddItem(new Item(item.item), 1);
+            else
+                inventory.AddItem(new Item(item.item), 1);
 
             Destroy(other.gameObject);
         }
+    }
+
+    private bool CanAddItemsToHotBar()
+    {
+        for (int i = 0; i < mainHotBarEquipment.Container.Items.Length; i++)
+        {
+            if (mainHotBarEquipment.Container.Items[i].ID <= -1)
+                return true;
+        }
+        return false;
     }
 
     private void InventoryPanelCheck()
