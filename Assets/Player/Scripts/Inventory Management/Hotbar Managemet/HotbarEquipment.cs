@@ -5,8 +5,11 @@ using UnityEngine;
 public class HotbarEquipment : MonoBehaviour
 {
     private int currentItemIndex;
-    public GameObject[] hotBarSlots;
-    public GameObject currentHotBarItemIndicator;
+    
+    public RectTransform[] hotBarSlots;
+    public RectTransform currentHotBarItemIndicator;
+
+    public InventoryObject hotBarItems;
 
     void Update()
     {
@@ -17,9 +20,8 @@ public class HotbarEquipment : MonoBehaviour
 
     private void SetCurrentItem()
     {
-        // currentHotBarItemIndicator.position = hotBarSlots[currentItemIndex].position;
-        currentHotBarItemIndicator.GetComponent<RectTransform>().position =
-            hotBarSlots[currentItemIndex].GetComponent<RectTransform>().position;
+        currentHotBarItemIndicator.position = hotBarSlots[currentItemIndex].position;
+        Debug.Log(hotBarItems.Container.Items[currentItemIndex].item.Name);
     }
 
     private void ProcessScrollWheelInput()
