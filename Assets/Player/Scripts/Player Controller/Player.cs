@@ -91,8 +91,8 @@ public class Player : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.Container.Items = new InventorySlot[30];
-        mainHotBarEquipment.Container.Items = new InventorySlot[7];
-        leftHandEquipment.Container.Items = new InventorySlot[1];
+        inventory.Container.Clear();
+        mainHotBarEquipment.Container.Clear();
+        leftHandEquipment.Container.Clear();
     }
 }

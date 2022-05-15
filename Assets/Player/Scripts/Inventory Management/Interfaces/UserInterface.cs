@@ -96,23 +96,29 @@ public abstract class UserInterface : MonoBehaviour
     }
     protected void OnDragEnd(GameObject obj)
     {
-        if (player.mouseItem.hoverObj)
+        var itemOnMouse = player.mouseItem;
+        var mouseHoverItem = itemOnMouse.hoverItem;
+        var mouseHoverObj = itemOnMouse.hoverObj;
+        var GetItemObject = inventory.database.GetItem;
+        
+        if (mouseHoverObj)
         {
-            if (player.mouseItem.hoverItem.ID == player.mouseItem.item.ID && player.mouseItem.hoverItem.item.buffs.Length == 0)
+            if (mouseHoverItem.ID == itemOnMouse.item.ID && mouseHoverItem.item.buffs.Length == 0)
             {
-                player.mouseItem.item.amount += player.mouseItem.hoverItem.amount;
-                player.mouseItem.hoverItem.ID = -1;
+                itemOnMouse.item.amount += mouseHoverItem.amount;
+                mouseHoverItem.ID = -1;
             }
             
-            inventory.MoveItem(itemsDisplayed[obj], player.mouseItem.hoverItem.parent.itemsDisplayed[player.mouseItem.hoverObj]);
+            if (mouseHoverItem.CanPlaceInSlot(GetItemObject[itemsDisplayed[obj].ID]))
+                inventory.MoveItem(itemsDisplayed[obj], mouseHoverItem.parent.itemsDisplayed[mouseHoverObj]);
         }
         else
         {
-            if (!player.mouseItem.IsOverInterface())
+            if (!itemOnMouse.IsOverInterface())
                 inventory.RemoveItem(itemsDisplayed[obj].item);
         }
-        Destroy(player.mouseItem.obj);
-        player.mouseItem.item = null;
+        Destroy(itemOnMouse.obj);
+        itemOnMouse.item = null;
     }
     protected void OnDrag(GameObject obj)
     {
