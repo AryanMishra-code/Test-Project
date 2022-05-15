@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 131400610755858274}
   - component: {fileID: 131400610755858277}
   - component: {fileID: 1552705279}
+  - component: {fileID: 1406594032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -489,6 +490,28 @@ MonoBehaviour:
   mainHotBarEquipment: {fileID: 11400000, guid: daca82aa42ab83e44b1b57103d357657, type: 2}
   leftHandEquipment: {fileID: 11400000, guid: 9d93f3f3a7fa18346a27b60b9d169a62, type: 2}
   inventoryHUD: {fileID: 0}
+--- !u!114 &1406594032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131400610755858286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b375dfe1150f5e2449dbc4d28a09c665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotBarSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentHotBarItemIndicator: {fileID: 0}
+  hotBarItems: {fileID: 11400000, guid: daca82aa42ab83e44b1b57103d357657, type: 2}
 --- !u!1 &131400611105955724
 GameObject:
   m_ObjectHideFlags: 0

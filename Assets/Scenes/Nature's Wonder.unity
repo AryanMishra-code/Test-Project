@@ -465,11 +465,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &281153917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 131400610755858286, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
-  m_PrefabInstance: {fileID: 302022526}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &302022526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -477,6 +472,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: hotBarSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1168997848}
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: hotBarSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1264011805}
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: hotBarSlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 561110953}
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: hotBarSlots.Array.data[3]
+      value: 
+      objectReference: {fileID: 717847295}
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: hotBarSlots.Array.data[4]
+      value: 
+      objectReference: {fileID: 1865006506}
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: hotBarSlots.Array.data[5]
+      value: 
+      objectReference: {fileID: 951596048}
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: hotBarSlots.Array.data[6]
+      value: 
+      objectReference: {fileID: 1784408989}
+    - target: {fileID: 1406594032, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
+      propertyPath: currentHotBarItemIndicator
+      value: 
+      objectReference: {fileID: 791366535}
     - target: {fileID: 1552705279, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
       propertyPath: inventoryHUD
       value: 
@@ -2928,33 +2955,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1552705279, guid: 11ed2006823ced54d8d228e7fbe81b10, type: 3}
   m_PrefabInstance: {fileID: 302022526}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281153917}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fea637b9b5fb96449d5179c360e3a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1406594032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281153917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b375dfe1150f5e2449dbc4d28a09c665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hotBarSlots:
-  - {fileID: 1168997848}
-  - {fileID: 1264011805}
-  - {fileID: 561110953}
-  - {fileID: 717847295}
-  - {fileID: 1865006506}
-  - {fileID: 951596048}
-  - {fileID: 1784408989}
-  currentHotBarItemIndicator: {fileID: 791366535}
 --- !u!1 &1408172670
 GameObject:
   m_ObjectHideFlags: 0
