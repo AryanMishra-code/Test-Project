@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
@@ -56,12 +57,31 @@ public class InventoryObject : ScriptableObject
 
     public void RemoveItem(Item _item)
     {
-        for (int i = 0; i < Container.Items.Length; i++)
+        foreach (var item in Container.Items)
         {
-            if (Container.Items[i].item == _item)
-            {
-                Container.Items[i].UpdateSlot(-1, null, 0);
-            }
+            if (_item == null) continue;
+            if (item.item != _item) continue;
+            var canDropItem = false;
+
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hit, 5f))
+                if (hit.transform.CompareTag("Ground"))
+                    canDropItem = true;
+
+            if (!canDropItem) continue;
+            var droppedItemInfo = database.GetItem[_item.Id];
+            var dropItem = new GameObject();
+
+            dropItem.AddComponent<SphereCollider>();
+            dropItem.GetComponent<SphereCollider>().isTrigger = true;
+                        
+            dropItem.AddComponent<DroppedItem>();
+            dropItem.GetComponent<DroppedItem>().item = droppedItemInfo;
+            dropItem.GetComponent<DroppedItem>().amount = item.amount; 
+
+            var upLocation = new Vector3(0, 0.5f, 0);
+            dropItem.transform.position = hit.point + upLocation;
+                        
+            item.UpdateSlot(-1, null, 0);
         }
     }
 
