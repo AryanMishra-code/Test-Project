@@ -6,7 +6,7 @@ using UnityEngine;
 public class GroundItem : MonoBehaviour
 {
     public ItemObject item;
-    
+
     void Start()
     {
         var objectPrefab = Instantiate(item.objectPrefab, this.transform.position, Quaternion.identity);

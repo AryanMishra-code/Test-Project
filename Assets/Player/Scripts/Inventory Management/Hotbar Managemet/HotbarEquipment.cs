@@ -21,7 +21,11 @@ public class HotbarEquipment : MonoBehaviour
     private void SetCurrentItem()
     {
         currentHotBarItemIndicator.position = hotBarSlots[currentItemIndex].position;
-        Debug.Log(hotBarItems.Container.Items[currentItemIndex].item.Name);
+
+        // if (hotBarItems.Container.Items[currentItemIndex].item.Id >= 0 && hotBarItems.Container.Items[currentItemIndex].item != null)
+        // {
+        //     Debug.Log(hotBarItems.Container.Items[currentItemIndex].item.Name);
+        // }
     }
 
     private void ProcessScrollWheelInput()
