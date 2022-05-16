@@ -76,6 +76,7 @@ public class InventoryObject : ScriptableObject
                         
             dropItem.AddComponent<DroppedItem>();
             dropItem.GetComponent<DroppedItem>().item = droppedItemInfo;
+            dropItem.GetComponent<DroppedItem>().amount = item.amount; 
 
             var upLocation = new Vector3(0, 0.5f, 0);
             dropItem.transform.position = hit.point + upLocation;

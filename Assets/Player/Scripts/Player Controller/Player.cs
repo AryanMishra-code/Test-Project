@@ -41,9 +41,9 @@ public class Player : MonoBehaviour
         if (item)
         {
             if (CanAddItemsToHotBar())
-                mainHotBarEquipment.AddItem(new Item(item.item), 1);
+                mainHotBarEquipment.AddItem(new Item(item.item), item.amount);
             else
-                inventory.AddItem(new Item(item.item), 1);
+                inventory.AddItem(new Item(item.item), item.amount);
 
             Destroy(other.gameObject);
         }
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         }
         return false;
     }
-
+    
     private void InventoryPanelCheck()
     {
         if (Input.GetKeyDown(KeyCode.I))
