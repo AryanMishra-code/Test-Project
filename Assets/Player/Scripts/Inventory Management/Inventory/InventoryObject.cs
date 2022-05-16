@@ -59,25 +59,35 @@ public class InventoryObject : ScriptableObject
     {
         for (int i = 0; i < Container.Items.Length; i++)
         {
-            if (Container.Items[i].item == _item)
+            if (_item != null)
             {
-                Container.Items[i].UpdateSlot(-1, null, 0);
+                if (Container.Items[i].item == _item)
+                {
+                    bool canDropItem = false;
 
-                var droppedItemInfo = database.GetItem[_item.Id];
-                var dropItem = new GameObject();
+                    RaycastHit hit;
+                    
+                    if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 5f))
+                        if (hit.transform.CompareTag("Ground"))
+                            canDropItem = true;
 
-                dropItem.AddComponent<SphereCollider>();
-                dropItem.GetComponent<SphereCollider>().isTrigger = true;
-                
-                dropItem.AddComponent<DroppedItem>();
-                dropItem.GetComponent<DroppedItem>().item = droppedItemInfo;
+                    if (canDropItem)
+                    {
+                        var droppedItemInfo = database.GetItem[_item.Id];
+                        var dropItem = new GameObject();
 
-                Vector3 upLocation = new Vector3(0, 0.5f, 0);
+                        dropItem.AddComponent<SphereCollider>();
+                        dropItem.GetComponent<SphereCollider>().isTrigger = true;
+                        
+                        dropItem.AddComponent<DroppedItem>();
+                        dropItem.GetComponent<DroppedItem>().item = droppedItemInfo;
 
-                RaycastHit hit;
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 5f))
-                    if (hit.transform.CompareTag("Ground"))
+                        Vector3 upLocation = new Vector3(0, 0.5f, 0);
                         dropItem.transform.position = hit.point + upLocation;
+                        
+                        Container.Items[i].UpdateSlot(-1, null, 0);
+                    }
+                }
             }
         }
     }
