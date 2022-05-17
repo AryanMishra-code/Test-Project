@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ItemType
@@ -84,6 +82,6 @@ public class ItemBuff
 
     public void GenerateValues()
     {
-        value = UnityEngine.Random.Range(min, max);
+        value = Random.Range(min, max);
     }
 }
