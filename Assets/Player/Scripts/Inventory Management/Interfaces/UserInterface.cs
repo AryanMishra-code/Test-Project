@@ -99,7 +99,6 @@ public abstract class UserInterface : MonoBehaviour
         var itemOnMouse = player.mouseItem;
         var mouseHoverItem = itemOnMouse.hoverItem;
         var mouseHoverObj = itemOnMouse.hoverObj;
-        var GetItemObject = inventory.database.GetItem;
         
         if (mouseHoverObj)
         {
