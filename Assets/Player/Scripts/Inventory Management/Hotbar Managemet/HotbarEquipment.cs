@@ -63,5 +63,7 @@ public class HotbarEquipment : MonoBehaviour
             currentItemIndex = 5;
         if (Input.GetKeyDown(KeyCode.Alpha7))
             currentItemIndex = 6;
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+            currentItemIndex = 7;
     }
 }

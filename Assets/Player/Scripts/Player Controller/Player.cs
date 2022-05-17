@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 
     public InventoryObject inventory;
     public InventoryObject mainHotBarEquipment;
-    public InventoryObject leftHandEquipment;
     
     [SerializeField] GameObject inventoryHUD;
 
@@ -93,6 +92,5 @@ public class Player : MonoBehaviour
     {
         inventory.Container.Clear();
         mainHotBarEquipment.Container.Clear();
-        leftHandEquipment.Container.Clear();
     }
 }

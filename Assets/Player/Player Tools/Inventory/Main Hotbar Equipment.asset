@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0afcd2ad50dee943be3e2056d7af06b, type: 3}
   m_Name: Main Hotbar Equipment
   m_EditorClassIdentifier: 
-  savePath: 
+  savePath: /equipment.Save
   database: {fileID: 11400000, guid: 047a2e9420998464d982b572987438e5, type: 2}
   Container:
     Items:
+    - parent: {fileID: 0}
+      ID: -1
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
     - parent: {fileID: 0}
       ID: -1
       item:

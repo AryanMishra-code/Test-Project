@@ -488,7 +488,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 8ba63bf8695a4a6418b4e7c0e82f9e58, type: 2}
   mainHotBarEquipment: {fileID: 11400000, guid: daca82aa42ab83e44b1b57103d357657, type: 2}
-  leftHandEquipment: {fileID: 11400000, guid: 9d93f3f3a7fa18346a27b60b9d169a62, type: 2}
   inventoryHUD: {fileID: 0}
 --- !u!114 &1406594032
 MonoBehaviour:
@@ -503,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotBarSlots:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
