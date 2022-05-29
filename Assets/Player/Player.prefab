@@ -471,7 +471,7 @@ MonoBehaviour:
   crouchSpeed: 1
   crouchingHeight: 0.75
   standingHeight: 2
-  cameraFOVSprint: 75
+  cameraFOVSprint: 67.5
   cameraFOVWalk: 60
   camera: {fileID: 131400610568071562}
 --- !u!114 &1552705279
